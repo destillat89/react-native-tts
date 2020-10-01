@@ -79,7 +79,7 @@ RCT_EXPORT_METHOD(speak:(NSString *)text
     }
 
     if([_ignoreSilentSwitch isEqualToString:@"ignore"]) {
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionDuckOthers error:nil];
     } else if([_ignoreSilentSwitch isEqualToString:@"obey"]) {
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
     }
