@@ -225,9 +225,7 @@ RCT_EXPORT_METHOD(voices:(RCTPromiseResolveBlock)resolve
 
 -(void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance
 {
-    if(_ducking) {
-        [[AVAudioSession sharedInstance] setActive:YES error:nil];
-    }
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
 
     [self sendEventWithName:@"tts-start" body:@{@"utteranceId":[NSNumber numberWithUnsignedLong:utterance.hash]}];
 }
@@ -252,9 +250,7 @@ RCT_EXPORT_METHOD(voices:(RCTPromiseResolveBlock)resolve
 
 -(void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didContinueSpeechUtterance:(AVSpeechUtterance *)utterance
 {
-    if(_ducking) {
-        [[AVAudioSession sharedInstance] setActive:YES error:nil];
-    }
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
 
     [self sendEventWithName:@"tts-resume" body:@{@"utteranceId":[NSNumber numberWithUnsignedLong:utterance.hash]}];
 }
